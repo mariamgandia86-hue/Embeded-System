@@ -7,8 +7,9 @@ int main(void)
 {
 	DDRD &=~(1<<PD2)&~(1<<PD3);
 	PORTD |=(1<<PD2)|(1<<PD3);
-	void initExternalInterrupts(void);
 	DDRA=0b00000011;
+	 initExternalInterrupts();
+	sei();
 	while (1)
 	{
 		

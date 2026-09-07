@@ -11,12 +11,12 @@ u8 mode_flag = 0;
 
 int main(void)
 {
-	DIO_SetPortDirection(PORTC, 0b11111111);
+	DIO_SetPortDirection(PORTC, 0xFF);
 	
 	DIO_SetPinDirection(PORTD, PIN2, INPUT);
 	DIO_SetPinValue(PORTD, PIN2, HIGH);
 
-	void initExternalInterrupts(void);
+	 initExternalInterrupts();
 	SET_BIT(SREG, 7);
 
 	while (1)
