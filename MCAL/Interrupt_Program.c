@@ -1,0 +1,1 @@
+#include <avr/io.h>#include <avr/interrupt.h>#include "INTERRUPT_private.h"void initExternalInterrupts(void){	SET_BIT(MCUCR,MCUCR_ISC00);	CLR_BIT(MCUCR,MCUCR_ISC01);	SET_BIT(MCUCR,MCUCR_ISC10);	CLR_BIT(MCUCR,MCUCR_ISC11);	SET_BIT(GICR,GICR_INT0);	SET_BIT(GICR,GICR_INT1);}
