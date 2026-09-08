@@ -1,0 +1,8 @@
+#ifndef STEPMOTOR_PRIVATE_H_
+#define STEPMOTOR_PRIVATE_H_
+
+
+
+
+
+#endif /* STEPMOTOR_PRIVATE_H_ */

@@ -1,37 +1,43 @@
-#include "../../LIB/STD_TYPES.h"
-#include "../../MCAL/DIO/DIO_interface.h"
-#include "LED_interface.h"
+#include "STD_TYPES.h"
+#include "BIT_MATH.h"
 
-void LED_voidInit(LED_t* Copy_pLED)
+#include "DIO_int.h"
+#include "LED_Interface.h"
+void LED_voidInit(void)
 {
-    DIO_voidSetPinDirection(Copy_pLED->Port, Copy_pLED->Pin, DIO_PIN_OUTPUT);
+    
+    DIO_voidSetPinDirection(PORTD, PIN0, OUTPUT);
+    DIO_voidSetPinDirection(PORTD, PIN1, OUTPUT);
+}
+void LED_voidFrontOn(void)
+{
+    DIO_voidSetPinValue(PORTD, PIN0, HIGH);
+}
+void LED_voidFrontOff(void)
+{
+    DIO_voidSetPinValue(PORTD, PIN0, LOW);
+}
+void LED_voidBackOn(void)
+{
+    DIO_voidSetPinValue(PORTD, PIN1, HIGH);
 }
 
-void LED_voidOn(LED_t* Copy_pLED)
+void LED_voidBackOff(void)
 {
-    if(Copy_pLED->ActiveState == LED_ACTIVE_HIGH)
+    DIO_voidSetPinValue(PORTD, PIN1, LOW);
+}
+void LED_voidToggleFront(void)
+{
+    static u8 Local_u8State = LOW;
+    
+    if(Local_u8State == LOW)
     {
-        DIO_voidSetPinValue(Copy_pLED->Port, Copy_pLED->Pin, DIO_PIN_HIGH);
+        DIO_voidSetPinValue(PORTD, PIN0, HIGH);
+        Local_u8State = HIGH;
     }
     else
     {
-        DIO_voidSetPinValue(Copy_pLED->Port, Copy_pLED->Pin, DIO_PIN_LOW);
+        DIO_voidSetPinValue(PORTD, PIN0, LOW);
+        Local_u8State = LOW;
     }
-}
-
-void LED_voidOff(LED_t* Copy_pLED)
-{
-    if(Copy_pLED->ActiveState == LED_ACTIVE_HIGH)
-    {
-        DIO_voidSetPinValue(Copy_pLED->Port, Copy_pLED->Pin, DIO_PIN_LOW);
-    }
-    else
-    {
-        DIO_voidSetPinValue(Copy_pLED->Port, Copy_pLED->Pin, DIO_PIN_HIGH);
-    }
-}
-
-void LED_voidToggle(LED_t* Copy_pLED)
-{
-    DIO_voidTogglePin(Copy_pLED->Port, Copy_pLED->Pin);
 }

@@ -1,0 +1,8 @@
+#ifndef STEPMOTOR_CONFIG_H_
+#define STEPMOTOR_CONFIG_H_
+
+
+#define STEPMOTOR_PORT   PORTC
+
+
+#endif /* STEPMOTOR_CONFIG_H_ */

@@ -1,5 +1,5 @@
-#ifndef STEEPERMOTOR_INTERFACE_H_
-#define STEEPERMOTOR_INTERFACE_H_
+#ifndef STEPMOTOR_INTERFACE_H_
+#define STEPMOTOR_INTERFACE_H_
 
 #define F_CPU 1000000UL
 #include <avr/io.h>
