@@ -1,0 +1,10 @@
+#ifndef TIMER1_CONFIG_H_
+#define TIMER1_CONFIG_H_
+
+
+#define TIMER1_SYSTEM_CLOCK_HZ     16000000UL
+#define TIMER1_PRESCALER           TIMER1_PRESCALER_64
+#define TIMER1_MODE                TIMER1_FAST_PWM_ICR1_MODE
+
+
+#endif /* TIMER1_CONFIG_H_ */
